@@ -54,7 +54,7 @@ partial class Master : Page {
 
         // Dashboard 
         // Usually brief summary, or basic feature to be shown on a main screen.
-        Handle.GET("/dashboard", () =>
+        /*Handle.GET("/dashboard", () =>
         {
             var page = new DashboardPage()
             {
@@ -67,7 +67,7 @@ partial class Master : Page {
 
             page.Transaction = new Transaction();
             return page;
-        });
+        });*/
 
         // Menu
         // Launcher navigation menu
@@ -75,49 +75,26 @@ partial class Master : Page {
         {
             var p = new Page()
             {
-                Html = "/boilerplate-menu.html"
+                Html = "/billing-menu.html"
             };
             return p;
         });
 
 
         // Ingredients list
-        Handle.GET("/polyjuiceboilerplate/ingredients", () =>
+        Handle.GET("/billing/vendables", () =>
         {
-            var page = new IngredientsPage()
+            var page = new VentablesPage()
             {
-                Html = "/boilerplate-ingredients.html"
+                Html = "/billing-vendables.html"
             };
             page.Transaction = new Transaction();
             page.Session = Session.Current;
 
-            var ingredients = SQL<PolyjuiceBoilerplate.Ingredient>("SELECT i FROM PolyjuiceBoilerplate.Ingredient i");
-            page.Ingredients.Data = ingredients;
+            var vendables = SQL<Billing.Vendable>("SELECT v FROM Billing.Vendable v");
+            page.Vendables.Data = vendables;
             
             return page;
-        });
-
-        // New ingredient 
-        Handle.GET("/polyjuiceboilerplate/ingredients/add", () =>
-        {
-            var page = new AddIngredientPage()
-            {
-                Html = "/boilerplate-add-ingredient.html"
-            };
-            page.Transaction = new Transaction();
-            page.Session = Session.Current;
-            return page;
-        });
-
-
-        // Map workspace call to list, and add tiles 
-        Handle.GET("/polyjuiceboilerplate", () =>
-        {
-            return (Json)X.GET("/polyjuiceboilerplate/ingredients/add");
-        });
-        Handle.GET("/polyjuiceboilerplate", () =>
-        {
-            return (Json)X.GET("/polyjuiceboilerplate/ingredients");
         });
     }
 }

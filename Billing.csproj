@@ -81,14 +81,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Server\AddIngredientPage.json.cs">
-      <DependentUpon>AddIngredientPage.json</DependentUpon>
-    </Compile>
     <Compile Include="Server\DashboardPage.json.cs">
       <DependentUpon>DashboardPage.json</DependentUpon>
     </Compile>
-    <Compile Include="Server\IngredientsPage.json.cs">
-      <DependentUpon>IngredientsPage.json</DependentUpon>
+    <Compile Include="Server\VendablesPage.json.cs">
+      <DependentUpon>VendablesPage.json</DependentUpon>
     </Compile>
     <Compile Include="Server\Master.json.cs">
       <DependentUpon>Master.json</DependentUpon>
@@ -106,8 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\boilerplate-dashboard.html" />
-    <Content Include="Client\boilerplate-ingredients.html" />
-    <Content Include="Client\boilerplate-menu.html" />
+    <Content Include="Client\billing-vendables.html" />
+    <Content Include="Client\billing-menu.html" />
     <Content Include="Client\boilerplate-add-ingredient.html" />
   </ItemGroup>
   <ItemGroup>
@@ -116,12 +113,7 @@
     </TypedJSON>
   </ItemGroup>
   <ItemGroup>
-    <TypedJSON Include="Server\IngredientsPage.json">
-      <Generator>MsBuild:Compile</Generator>
-    </TypedJSON>
-  </ItemGroup>
-  <ItemGroup>
-    <TypedJSON Include="Server\AddIngredientPage.json">
+    <TypedJSON Include="Server\VendablesPage.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
   </ItemGroup>

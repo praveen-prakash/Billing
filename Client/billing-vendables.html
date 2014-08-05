@@ -1,0 +1,14 @@
+﻿<template bind="{{Billing}}">
+	<div>
+		<h1><i class="ingredient-icon"></i>Vendables</h1>
+			<ul>
+				<template repeat="{{Vendables}}">
+					<li>
+                        <input value="{{Name$}}" placeholder="Name">
+                        <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
+					</li>
+				</template>
+			</ul>
+            <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add vendable</button>
+	</div>
+</template>
