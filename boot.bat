@@ -1,3 +1,3 @@
 cd Client
-star ../bin/Debug/PolyjuiceBoilerplate.exe
+star ../bin/Debug/Billing.exe
 cd ..

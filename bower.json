@@ -1,9 +1,9 @@
 {
-  "name": "PolymerBolierplate",
+  "name": "Billing",
   "version": "0.0.0",
   "private": true,
-  "homepage": "https://github.com/Starcounter/PolymerBolierplate",
-  "description": "Minimum amount of code to create a Polyjuice Application.",
+  "homepage": "https://github.com/Polyjuice/Billing",
+  "description": "Polyjuice Billing app,
   "main": "Server/Master.json.cs",
   "license": "MIT",
   "ignore": [
