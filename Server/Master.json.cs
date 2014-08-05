@@ -127,6 +127,24 @@ partial class Master : Page {
 
             return page;
         });
+
+        Handle.GET("/billing/orders", () =>
+        {
+            var page = new OrdersPage()
+            {
+                Html = "/billing-orders.html"
+            };
+            page.Transaction = new Transaction();
+            page.Session = Session.Current;
+
+            //var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt IS ?", null);
+            var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt IS NULL");
+
+            //var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o");
+            page.Orders.Data = orders;
+
+            return page;
+        });
     }
 }
 

@@ -1,0 +1,21 @@
+﻿<template bind="{{Billing}}">
+	<div>
+		<h1><i class="ingredient-icon"></i>Pending orders</h1>
+			<ul>
+				<template repeat="{{Orders}}">
+					<li>
+                        Offer: {{Offer.Name}}
+                        <br>Price: {{Offer.Price}}
+                        <ul>
+                        <template repeat="{{Offer.OfferItems}}">
+					        <li>
+                                {{Vendable.Name}}
+					        </li>
+				        </template>
+					</li>
+				</template>
+			</ul>
+            <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).RequestReceipt$ = null">Request Receipt</button>
+
+	</div>
+</template>
