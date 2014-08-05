@@ -1,0 +1,12 @@
+<template bind="{{PolyjuiceBoilerplate}}">
+	<div>
+		<h1><i class="bottle-icon"></i>Polyjuice App Boilerplate</h1>
+		<template if="{{Ingredients}}">
+			<ul>
+				<template repeat="{{Ingredients}}">
+					<li>{{Amount}} &times; {{Name}}</li>
+				</template>
+			</ul>
+		</template>
+	</div>
+</template>

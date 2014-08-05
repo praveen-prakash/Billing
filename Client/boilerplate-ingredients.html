@@ -1,0 +1,13 @@
+﻿<template bind="{{PolyjuiceBoilerplate}}">
+	<div>
+		<h2><i class="ingredient-icon"></i>Ingredients</h1>
+			<ul>
+				<template repeat="{{Ingredients$}}">
+					<li>
+                        <input value="{{Amount$}}" placeholder="Amount" type="number" style="width: 3em;"> &times; <input value="{{Name$}}" placeholder="Name">
+					</li>
+				</template>
+			</ul>
+
+	</div>
+</template>
