@@ -112,6 +112,21 @@ partial class Master : Page {
 
             return page;
         });
+
+        Handle.GET("/billing/buy", () =>
+        {
+            var page = new BuyPage()
+            {
+                Html = "/billing-buy.html"
+            };
+            page.Transaction = new Transaction();
+            page.Session = Session.Current;
+
+            var offers = SQL<Billing.Offer>("SELECT o FROM Billing.Offer o");
+            page.Offers.Data = offers;
+
+            return page;
+        });
     }
 }
 

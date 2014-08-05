@@ -81,6 +81,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Server\BuyPage.json.cs">
+      <DependentUpon>BuyPage.json</DependentUpon>
+    </Compile>
     <Compile Include="Server\DashboardPage.json.cs">
       <DependentUpon>DashboardPage.json</DependentUpon>
     </Compile>
@@ -105,11 +108,12 @@
     </TypedJSON>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client\billing-offers.html" />
     <Content Include="Client\boilerplate-dashboard.html" />
     <Content Include="Client\billing-vendables.html" />
     <Content Include="Client\billing-menu.html" />
     <Content Include="Client\boilerplate-add-ingredient.html" />
-    <Content Include="Client\billing-offers.html" />
+    <Content Include="Client\billing-buy.html" />
   </ItemGroup>
   <ItemGroup>
     <TypedJSON Include="Server\Page.json">
@@ -128,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <TypedJSON Include="Server\BuyPage.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
     <TypedJSON Include="Server\OffersPage.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>

@@ -1,0 +1,20 @@
+﻿<template bind="{{Billing}}">
+	<div>
+		<h1><i class="ingredient-icon"></i>Buy</h1>
+			<ul>
+				<template repeat="{{Offers}}">
+					<li>
+                        Offer: {{Name}}
+                        <br>Price: {{Price}}
+                        <ul>
+                        <template repeat="{{OfferItems}}">
+					        <li>
+                                {{Vendable.Name}}
+					        </li>
+				        </template>
+                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Buy$ = null">Buy</button>
+					</li>
+				</template>
+			</ul>
+	</div>
+</template>
