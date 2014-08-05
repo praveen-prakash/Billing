@@ -1,0 +1,22 @@
+﻿<template bind="{{Billing}}">
+	<div>
+		<h1><i class="ingredient-icon"></i>Offers</h1>
+			<ul>
+				<template repeat="{{Offers}}">
+					<li>
+                        Offer: <input value="{{Name$}}" placeholder="Name">
+                        <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
+                        <br>Price: <input value="{{Price$}}" placeholder="Price">
+                        <template repeat="{{OfferItems}}">
+					        <li>
+                                <input value="{{Name$}}" placeholder="Name">
+                                <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
+					        </li>
+				        </template>
+                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add vendable</button>
+					</li>
+				</template>
+			</ul>
+            <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add offer</button>
+	</div>
+</template>

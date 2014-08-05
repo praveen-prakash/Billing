@@ -12,7 +12,8 @@ namespace Billing
     [Database]
     public class Offer
     {
-        public string Price;
+        public string Name;
+        public decimal Price;
     }
 
     [Database]

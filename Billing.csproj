@@ -84,6 +84,9 @@
     <Compile Include="Server\DashboardPage.json.cs">
       <DependentUpon>DashboardPage.json</DependentUpon>
     </Compile>
+    <Compile Include="Server\OffersPage.json.cs">
+      <DependentUpon>OffersPage.json</DependentUpon>
+    </Compile>
     <Compile Include="Server\VendablesPage.json.cs">
       <DependentUpon>VendablesPage.json</DependentUpon>
     </Compile>
@@ -106,6 +109,7 @@
     <Content Include="Client\billing-vendables.html" />
     <Content Include="Client\billing-menu.html" />
     <Content Include="Client\boilerplate-add-ingredient.html" />
+    <Content Include="Client\billing-offers.html" />
   </ItemGroup>
   <ItemGroup>
     <TypedJSON Include="Server\Page.json">
@@ -124,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <TypedJSON Include="Server\OffersPage.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

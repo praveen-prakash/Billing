@@ -80,8 +80,6 @@ partial class Master : Page {
             return p;
         });
 
-
-        // Ingredients list
         Handle.GET("/billing/vendables", () =>
         {
             var page = new VentablesPage()
@@ -93,7 +91,22 @@ partial class Master : Page {
 
             var vendables = SQL<Billing.Vendable>("SELECT v FROM Billing.Vendable v");
             page.Vendables.Data = vendables;
-            
+
+            return page;
+        });
+
+        Handle.GET("/billing/offers", () =>
+        {
+            var page = new OffersPage()
+            {
+                Html = "/billing-offers.html"
+            };
+            page.Transaction = new Transaction();
+            page.Session = Session.Current;
+
+            var offers = SQL<Billing.Offer>("SELECT o FROM Billing.Offer o");
+            page.Offers.Data = offers;
+
             return page;
         });
     }
