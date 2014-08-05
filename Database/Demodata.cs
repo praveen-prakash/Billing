@@ -1,12 +1,38 @@
 ﻿using Starcounter;
+using System;
 
-namespace PolyjuiceBoilerplate
+namespace Billing
 {
     [Database]
-    public class Ingredient
+    public class Vendable
     {
         public string Name;
-        public int Amount;
     }
 
+    [Database]
+    public class Offer
+    {
+        public string Price;
+    }
+
+    [Database]
+    public class OfferItem
+    {
+        public Offer Offer;
+        public Vendable Vendable;
+    }
+
+    [Database]
+    public class Order
+    {
+        public Offer Offer;
+        public DateTime DateTime;
+        public Receipt Receipt;
+    }
+
+    [Database]
+    public class Receipt
+    {
+        public DateTime DateTime;
+    }
 }
