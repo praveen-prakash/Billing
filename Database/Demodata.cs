@@ -1,4 +1,4 @@
-﻿using Starcounter;
+using Starcounter;
 using System;
 
 namespace Billing
@@ -36,5 +36,6 @@ namespace Billing
     public class Receipt
     {
         public DateTime DateTime;
+        public Decimal TotalPrice;
     }
 }

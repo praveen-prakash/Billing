@@ -137,11 +137,23 @@ partial class Master : Page {
             page.Transaction = new Transaction();
             page.Session = Session.Current;
 
-            //var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt IS ?", null);
             var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt IS NULL");
-
-            //var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o");
             page.Orders.Data = orders;
+
+            return page;
+        });
+
+        Handle.GET("/billing/receipts", () =>
+        {
+            var page = new ReceiptsPage()
+            {
+                Html = "/billing-receipts.html"
+            };
+            page.Transaction = new Transaction();
+            page.Session = Session.Current;
+
+            var receipts = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r");
+            page.Receipts.Data = receipts;
 
             return page;
         });

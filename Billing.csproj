@@ -93,6 +93,9 @@
     <Compile Include="Server\OrdersPage.json.cs">
       <DependentUpon>OrdersPage.json</DependentUpon>
     </Compile>
+    <Compile Include="Server\ReceiptsPage.json.cs">
+      <DependentUpon>ReceiptsPage.json</DependentUpon>
+    </Compile>
     <Compile Include="Server\VendablesPage.json.cs">
       <DependentUpon>VendablesPage.json</DependentUpon>
     </Compile>
@@ -118,6 +121,7 @@
     <Content Include="Client\boilerplate-add-ingredient.html" />
     <Content Include="Client\billing-buy.html" />
     <Content Include="Client\billing-orders.html" />
+    <Content Include="Client\billing-receipts.html" />
   </ItemGroup>
   <ItemGroup>
     <TypedJSON Include="Server\Page.json">
@@ -136,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <TypedJSON Include="Server\ReceiptsPage.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
     <TypedJSON Include="Server\OrdersPage.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>
