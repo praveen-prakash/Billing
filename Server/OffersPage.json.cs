@@ -16,6 +16,11 @@ partial class OffersPage : Page
     }
 }
 
+[OffersPage_json.Vendables]
+partial class OffersPageVendables : Page
+{
+}
+
 [OffersPage_json.Offers]
 partial class OffersPageOffers : Page
 {
@@ -36,5 +41,25 @@ partial class OffersPageOffers : Page
         Data.Delete();
         Transaction.Commit();
         ((Starcounter.Arr<OffersPageOffers>)this.Parent).Remove(this);
+    }
+
+    void Handle(Input.AddVendable input)
+    {
+        Billing.OfferItem offerItem = new Billing.OfferItem();
+        offerItem.Offer = (Billing.Offer)this.Data;
+        Starcounter.Arr<OffersPageVendables> vendables = ((OffersPage)this.Parent.Parent).Vendables;
+        offerItem.Vendable = (Billing.Vendable)vendables[(int)this.VendablesSelectedIndex].Data;
+        Transaction.Commit();
+    }
+}
+
+[OffersPage_json.Offers.OfferItems]
+partial class OffersPageOffersVendables : Page
+{
+    void Handle(Input.Remove input)
+    {
+        Data.Delete();
+        Transaction.Commit();
+        ((Starcounter.Arr<OffersPageOffersVendables>)this.Parent).Remove(this);
     }
 }

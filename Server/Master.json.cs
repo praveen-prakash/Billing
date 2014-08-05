@@ -107,6 +107,9 @@ partial class Master : Page {
             var offers = SQL<Billing.Offer>("SELECT o FROM Billing.Offer o");
             page.Offers.Data = offers;
 
+            var vendables = SQL<Billing.Vendable>("SELECT v FROM Billing.Vendable v");
+            page.Vendables.Data = vendables;
+
             return page;
         });
     }

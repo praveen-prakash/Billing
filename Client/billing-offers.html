@@ -7,13 +7,22 @@
                         Offer: <input value="{{Name$}}" placeholder="Name">
                         <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
                         <br>Price: <input value="{{Price$}}" placeholder="Price">
+                        <h2>Vendables</h2>
+                        <ul>
                         <template repeat="{{OfferItems}}">
 					        <li>
-                                <input value="{{Name$}}" placeholder="Name">
+                                {{Vendable.Name}}
                                 <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
 					        </li>
 				        </template>
-                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add vendable</button>
+                            </ul>
+                        Ind: {{VendablesSelectedIndex$}}
+                        <select selectedindex="{{VendablesSelectedIndex$}}">
+                            <template repeat="{{$parent.$parent.Vendables}}">
+                                <option>{{Name}}</option>
+                            </template>
+                        </select>
+                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).AddVendable$ = null">Add vendable</button>
 					</li>
 				</template>
 			</ul>

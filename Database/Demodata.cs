@@ -14,6 +14,7 @@ namespace Billing
     {
         public string Name;
         public decimal Price;
+        public QueryResultRows<OfferItem> OfferItems { get { return Db.SQL<OfferItem>("SELECT o FROM Billing.OfferItem o WHERE Offer=?", this); } }
     }
 
     [Database]

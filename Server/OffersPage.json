@@ -1,12 +1,19 @@
 {
  "Html": "",
+ "Vendables": [{
+   "Name": ""
+ }],
  "Offers": [{
 	"Name$": "",
 	"Price$": 0.0,
-	"Vendables": [{
-	  "Name": "",
+	"OfferItems": [{
+	  "Vendable": {
+	    "Name": ""
+	  },
 	  "Remove$": null
 	}],
+	"VendablesSelectedIndex$": 0,
+	"AddVendable$": null,
 	"Remove$": null
   }],
   "Add$": null
