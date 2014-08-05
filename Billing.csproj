@@ -93,6 +93,9 @@
     <Compile Include="Server\OrdersPage.json.cs">
       <DependentUpon>OrdersPage.json</DependentUpon>
     </Compile>
+    <Compile Include="Server\ReceiptPage.json.cs">
+      <DependentUpon>ReceiptPage.json</DependentUpon>
+    </Compile>
     <Compile Include="Server\ReceiptsPage.json.cs">
       <DependentUpon>ReceiptsPage.json</DependentUpon>
     </Compile>
@@ -115,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\billing-offers.html" />
+    <Content Include="Client\billing-receipt.html" />
     <Content Include="Client\boilerplate-dashboard.html" />
     <Content Include="Client\billing-vendables.html" />
     <Content Include="Client\billing-menu.html" />
@@ -140,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <TypedJSON Include="Server\ReceiptPage.json">
+      <Generator>MsBuild:Compile</Generator>
+    </TypedJSON>
     <TypedJSON Include="Server\ReceiptsPage.json">
       <Generator>MsBuild:Compile</Generator>
     </TypedJSON>

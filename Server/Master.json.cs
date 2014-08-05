@@ -157,6 +157,21 @@ partial class Master : Page {
 
             return page;
         });
+
+        Handle.GET("/billing/receipts/{?}", (string ObjectID) =>
+        {
+            var page = new ReceiptPage()
+            {
+                Html = "/billing-receipt.html"
+            };
+            page.Transaction = new Transaction();
+            page.Session = Session.Current;
+
+            var receipt = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r WHERE ObjectID = ?", ObjectID);
+            page.Receipt.Data = receipt.First;
+
+            return page;
+        });
     }
 }
 

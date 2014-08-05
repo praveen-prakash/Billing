@@ -1,0 +1,12 @@
+﻿<template bind="{{Billing}}">
+	<div>
+		<h1><i class="ingredient-icon"></i>Receipt</h1>
+
+        <template bind="{{Receipt}}">
+        <p>
+            <strong>Issue date: {{DateTime}}</strong>
+            <br>Total Price: {{TotalPrice}}
+        </p>
+        </template>
+	</div>
+</template>

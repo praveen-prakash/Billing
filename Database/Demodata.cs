@@ -37,5 +37,6 @@ namespace Billing
     {
         public DateTime DateTime;
         public Decimal TotalPrice;
+        public QueryResultRows<Order> Orders { get { return Db.SQL<Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt=?", this); } }
     }
 }

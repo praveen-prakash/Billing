@@ -12,7 +12,7 @@ partial class ReceiptsPageReceipts : Page
     {
         get
         {
-            return "/billing/receipts/" + Data.GetObjectID();
+            return "/launcher/workspace/billing/receipts/" + Data.GetObjectID();
         }
     }
 }
