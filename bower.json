@@ -15,5 +15,6 @@
     "tests"
   ],
   "dependencies": {
+    "hot-table": "handsontable/hot-table#gh-pages"
   }
 }
