@@ -152,7 +152,7 @@ partial class Master : Page {
             page.Transaction = new Transaction();
             page.Session = Session.Current;
 
-            var receipts = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r");
+            var receipts = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r ORDER BY \"DateTime\" DESC");
             page.Receipts.Data = receipts;
 
             return page;

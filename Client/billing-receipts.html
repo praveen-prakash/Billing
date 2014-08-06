@@ -1,13 +1,35 @@
 ﻿<template bind="{{Billing}}">
-	<div>
-		<h1><i class="ingredient-icon"></i>Receipts</h1>
-			<ul>
-				<template repeat="{{Receipts}}">
-					<li>
-                        <a href="{{Uri}}">Issue Date: {{DateTime}} &ndash; Total Price: {{TotalPrice}}</a>
-					</li>
-				</template>
-			</ul>
+  <style>
+    .billing-receipts-page ul {
+      list-style: none;
+      padding: 0;
+    }
+    .billing-receipts-page li a {
+      display: block;
+      width: 400px;
+      text-decoration: none;
+      color: black;
+      padding: 6px 6px;
+      position: relative;
+    }
+    .billing-receipts-page li a span {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+    }
+    .billing-receipts-page li a:hover {
+      background: #eee;
+    }
+  </style>
+  <div class="billing-receipts-page">
+    <h1><i class="ingredient-icon"></i>Receipts</h1>
+    <ul>
+      <template repeat="{{Receipts}}">
+        <li>
+          <a href="{{Uri}}">Issue Date: <strong>{{DateTime}}</strong> <span>{{TotalPrice}} EUR</span></a>
+        </li>
+      </template>
+    </ul>
 
-	</div>
+  </div>
 </template>
