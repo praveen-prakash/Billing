@@ -1,20 +1,126 @@
-﻿<template bind="{{Billing}}">
-	<div>
-		<h1><i class="ingredient-icon"></i>Buy</h1>
-			<ul>
-				<template repeat="{{Offers}}">
-					<li>
-                        Offer: {{Name}}
-                        <br>Price: {{Price}}
-                        <ul>
-                        <template repeat="{{OfferItems}}">
-					        <li>
-                                {{Vendable.Name}}
-					        </li>
-				        </template>
-                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Buy$ = null">Buy</button>
-					</li>
-				</template>
-			</ul>
-	</div>
+﻿<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+
+<template bind="{{Billing}}">
+
+  <style>
+    .billing-buy-page {
+      width: 100%;
+    }
+
+    .billing-buy-page .header {
+      font-family: 'Bangers', cursive;
+      font-size: 36px;
+      margin: 0 0 10px 0;
+    }
+
+    .billing-buy-page ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    .billing-buy-page ul.offerItems {
+      margin: 10px 0;
+    }
+
+    .billing-buy-page button {
+      padding: 8px 0;
+      background-color: #665950;
+    }
+
+    .billing-buy-page > ul > li {
+      background-color: #73C7AF;
+      color: white;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 0 20px 20px 0;
+      padding: 20px 20px;
+      position: relative;
+    }
+
+    .tags{
+      margin:0;
+      padding:0;
+      position:absolute;
+      list-style:none;
+      top: 10px;
+      left: 200px;
+    }
+    .tags li, .tags a{
+      float:left;
+      height:36px;
+      line-height:36px;
+      position:relative;
+      font-size:22px;
+    }
+    .tags a{
+      margin-left:20px;
+      padding:0 16px 0 18px;
+      white-space: nowrap;
+      background:#FF7867;
+      color:#fff;
+      text-decoration:none;
+      -moz-border-radius-bottomright:8px;
+      -webkit-border-bottom-right-radius:8px;
+      border-bottom-right-radius:8px;
+      -moz-border-radius-topright:8px;
+      -webkit-border-top-right-radius:8px;
+      border-top-right-radius:8px;
+    }
+    .tags a:before{
+      content:"";
+      float:left;
+      position:absolute;
+      top:0;
+      left:-18px;
+      width:0;
+      height:0;
+      border-color:transparent #FF7867 transparent transparent;
+      border-style:solid;
+      border-width:18px 18px 18px 0;
+    }
+    .tags a:after{
+      content:"";
+      position:absolute;
+      top:16px;
+      left:0;
+      float:left;
+      width:6px;
+      height:6px;
+      -moz-border-radius:4px;
+      -webkit-border-radius:4px;
+      border-radius:4px;
+      background:#fff;
+      -moz-box-shadow:-2px -2px 4px #D66F5C;
+      -webkit-box-shadow:-2px -2px 4px #D66F5C;
+      box-shadow:-2px -2px 4px #D66F5C;
+    }
+
+    .tags a:hover{background:#D66F5C;}
+    .tags a:hover:before{border-color:transparent #D66F5C transparent transparent;}
+  </style>
+
+  <div class="billing-buy-page">
+    <h1><i class="ingredient-icon"></i>Buy</h1>
+    <ul>
+      <template repeat="{{Offers}}">
+        <li>
+          <span class="header">{{Name}}</span>
+
+          <ul class="tags">
+            <li><a href="#">$ {{Price}}</a></li>
+          </ul>
+
+          <ul class="offerItems">
+            <template repeat="{{OfferItems}}">
+              <li>
+                {{Vendable.Name}}
+              </li>
+            </template>
+          </ul>
+          <button class="launcher-button" onclick="getModel(this).Buy$ = null">Buy</button>
+        </li>
+      </template>
+    </ul>
+  </div>
 </template>

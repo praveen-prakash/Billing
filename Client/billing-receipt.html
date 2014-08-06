@@ -1,31 +1,37 @@
-﻿<script src="/vendor/jquery/dist/jquery.min.js"></script>
+﻿<script>
+  if(!window.jQuery)
+  {
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = "/vendor/jquery/dist/jquery.min.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+</script>
 <link rel="import" href="/vendor/hot-table/src/hot-table.html">
 
 <template bind="{{Billing}}">
-	<div>
-		<h1><i class="ingredient-icon"></i>Receipt</h1>
+  <div>
+    <h1><i class="ingredient-icon"></i>Receipt</h1>
 
-        <template bind="{{Receipt}}">
-        <p>
-            <strong>Issue date: {{DateTime}}</strong>
-            <br>Total Price: {{TotalPrice}}
-        </p>
+    <template bind="{{Receipt}}">
+      <p>
+        <strong>Issue date: {{DateTime}}</strong>
+        <br>Total Price: {{TotalPrice}}
+      </p>
 
-            
+      <hot-table id="receiptHot" datarows="{{Orders}}">
+        <hot-column width="200" readOnly value="Offer.Name" header="Name"></hot-column>
+        <hot-column width="100" value="Offer.Price" readOnly header="Price"></hot-column>
+      </hot-table>
 
-            <hot-table id="receiptHot" datarows="{{Orders}}">
-                <hot-column width="200" readOnly value="Offer.Name" header="Name"></hot-column>
-                <hot-column width="100" value="Offer.Price" readOnly header="Price"></hot-column>
-              </hot-table>
-
-            <script>
-                window.requestAnimationFrame(function () {
-                    window.requestAnimationFrame(function () {
-                        var hot = document.getElementById("receiptHot");
-                        hot.updateSettings({ data: getModel(hot).Orders });
-                    });
-                });
-            </script>
-        </template>
-	</div>
+      <script>
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            var hot = document.getElementById("receiptHot");
+            hot.updateSettings({ data: getModel(hot).Orders });
+          });
+        });
+      </script>
+    </template>
+  </div>
 </template>

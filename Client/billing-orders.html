@@ -1,21 +1,39 @@
-﻿<template bind="{{Billing}}">
-	<div>
-		<h1><i class="ingredient-icon"></i>Current orders</h1>
-			<ul>
-				<template repeat="{{Orders}}">
-					<li>
-                        Offer: {{Offer.Name}}
-                        <br>Price: {{Offer.Price}}
-                        <ul>
-                        <template repeat="{{Offer.OfferItems}}">
-					        <li>
-                                {{Vendable.Name}}
-					        </li>
-				        </template>
-					</li>
-				</template>
-			</ul>
-            <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).RequestReceipt$ = null">Request Receipt</button>
+﻿<script>
+  if(!window.jQuery)
+  {
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+    script.src = "/vendor/jquery/dist/jquery.min.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+</script>
+<link rel="import" href="/vendor/hot-table/src/hot-table.html">
 
-	</div>
+<template bind="{{Billing}}">
+  <style>
+    .request-receipt {
+      margin-top: 20px;
+    }
+  </style>
+
+  <div>
+    <h1><i class="ingredient-icon"></i>Current orders</h1>
+
+    <hot-table id="receiptHot" datarows="{{Orders}}">
+      <hot-column width="200" readOnly value="Offer.Name" header="Name"></hot-column>
+      <hot-column width="100" value="Offer.Price" readOnly header="Price"></hot-column>
+    </hot-table>
+
+    <script>
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          var hot = document.getElementById("receiptHot");
+          hot.updateSettings({ data: getModel(hot).Orders });
+        });
+      });
+    </script>
+
+    <button class="launcher-button request-receipt" style="background-color:#11653B" onclick="getModel(this).RequestReceipt$ = null">Request Receipt</button>
+
+  </div>
 </template>
