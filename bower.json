@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "homepage": "https://github.com/Polyjuice/Billing",
-  "description": "Polyjuice Billing app,
+  "description": "Polyjuice Billing app",
   "main": "Server/Master.json.cs",
   "license": "MIT",
   "ignore": [
