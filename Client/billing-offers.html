@@ -1,31 +1,75 @@
 ﻿<template bind="{{Billing}}">
-	<div>
-		<h1><i class="ingredient-icon"></i>Offers</h1>
-			<ul>
-				<template repeat="{{Offers}}">
-					<li>
-                        Offer: <input value="{{Name$}}" placeholder="Name">
-                        <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
-                        <br>Price: <input value="{{Price$}}" placeholder="Price">
-                        <h2>Vendables</h2>
-                        <ul>
-                        <template repeat="{{OfferItems}}">
-					        <li>
-                                {{Vendable.Name}}
-                                <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
-					        </li>
-				        </template>
-                            </ul>
-                        Ind: {{VendablesSelectedIndex$}}
-                        <select selectedindex="{{VendablesSelectedIndex$}}">
-                            <template repeat="{{$parent.$parent.Vendables}}">
-                                <option>{{Name}}</option>
-                            </template>
-                        </select>
-                        <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).AddVendable$ = null">Add vendable</button>
-					</li>
-				</template>
-			</ul>
-            <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add offer</button>
-	</div>
+  <style>
+    .billing-offers-page {
+      width: 100%;
+    }
+
+    .billing-offers-page > ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    .billing-offers-page > ul > li {
+      background-color: #73C7AF;
+      color: white;
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 0 20px 20px 0;
+      padding: 20px 20px;
+      position: relative;
+    }
+
+    .billing-offers-page h2 {
+      margin: 10px 0 5px 0;
+    }
+
+    .billing-offers-page ul.offerItems {
+      margin: 10px 0;
+      padding-left: 25px;
+    }
+
+    .billing-offers-page .offer-name input{
+      font-size: 24px;
+      width: 160px;
+    }
+
+    .billing-offers-page input.offer-price{
+       width: 153px;
+      font-size: 12px;
+     }
+  </style>
+  <div class="billing-offers-page">
+    <h1><i class="ingredient-icon"></i>Offers</h1>
+    <ul>
+      <template repeat="{{Offers}}">
+        <li>
+          <div class="offer-name"><input value="{{Name$}}" placeholder="Offer Name" title="Offer Name">
+            <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
+          </div>
+          <br>Price: <input value="{{Price$}}" class="offer-price" type="number">
+          <h2>Offer items</h2>
+          <ul class="offerItems">
+            <template repeat="{{OfferItems}}">
+              <li>
+                {{Vendable.Name}}
+                <button onclick="getModel(this).Remove$ = null" title="Remove">✖</button>
+              </li>
+            </template>
+            <li>
+
+              <select selectedindex="{{VendablesSelectedIndex$}}">
+              <template repeat="{{$parent.$parent.Vendables}}">
+                <option>{{Name}}</option>
+              </template>
+            </select>
+
+              <button onclick="getModel(this).AddVendable$ = null">Add</button>
+            </li>
+          </ul>
+        </li>
+      </template>
+    </ul>
+    <button class="launcher-button" style="background-color:#11653B" onclick="getModel(this).Add$ = null">Add offer</button>
+  </div>
 </template>
