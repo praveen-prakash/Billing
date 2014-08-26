@@ -87,7 +87,7 @@ partial class Master : Page {
                 Html = "/billing-vendables.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
             var vendables = SQL<Billing.Vendable>("SELECT v FROM Billing.Vendable v");
             page.Vendables.Data = vendables;
@@ -102,7 +102,7 @@ partial class Master : Page {
                 Html = "/billing-offers.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
             var offers = SQL<Billing.Offer>("SELECT o FROM Billing.Offer o");
             page.Offers.Data = offers;
@@ -120,7 +120,7 @@ partial class Master : Page {
                 Html = "/billing-buy.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
             var offers = SQL<Billing.Offer>("SELECT o FROM Billing.Offer o");
             page.Offers.Data = offers;
@@ -135,40 +135,40 @@ partial class Master : Page {
                 Html = "/billing-orders.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
-            var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt IS NULL");
+            var orders = SQL<Billing.Order>("SELECT o FROM \"Billing.Order\" o WHERE invoice IS NULL");
             page.Orders.Data = orders;
 
             return page;
         });
 
-        Handle.GET("/billing/receipts", () =>
+        Handle.GET("/billing/invoices", () =>
         {
-            var page = new ReceiptsPage()
+            var page = new InvoicesPage()
             {
-                Html = "/billing-receipts.html"
+                Html = "/billing-invoices.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
-            var receipts = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r ORDER BY \"DateTime\" DESC");
-            page.Receipts.Data = receipts;
+            var invoices = SQL<Billing.Invoice>("SELECT i FROM Billing.Invoice i ORDER BY \"DateTime\" DESC");
+            page.Invoices.Data = invoices;
 
             return page;
         });
 
-        Handle.GET("/billing/receipts/{?}", (string ObjectID) =>
+        Handle.GET("/billing/invoices/{?}", (string ObjectID) =>
         {
-            var page = new ReceiptPage()
+            var page = new InvoicePage()
             {
-                Html = "/billing-receipt.html"
+                Html = "/billing-invoice.html"
             };
             page.Transaction = new Transaction();
-            page.Session = Session.Current;
+            //page.Session = Session.Current;
 
-            var receipt = SQL<Billing.Receipt>("SELECT r FROM Billing.Receipt r WHERE ObjectID = ?", ObjectID);
-            page.Receipt.Data = receipt.First;
+            var invoice = SQL<Billing.Invoice>("SELECT i FROM Billing.Invoice i WHERE ObjectID = ?", ObjectID);
+            page.Invoice.Data = invoice.First;
 
             return page;
         });

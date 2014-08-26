@@ -11,27 +11,18 @@
 
 <template bind="{{Billing}}">
   <div>
-    <h1><i class="ingredient-icon"></i>Receipt</h1>
+    <h1><i class="ingredient-icon"></i>Invoice</h1>
 
-    <template bind="{{Receipt}}">
+    <template bind="{{Invoice}}">
       <p>
         <strong>Issue date: {{DateTime}}</strong>
         <br>Total Price: {{TotalPrice}} EUR
       </p>
 
-      <hot-table id="receiptHot" datarows="{{Orders}}">
+      <hot-table id="invoiceHot" datarows="{{Orders}}">
         <hot-column width="200" readOnly value="Offer.Name" header="Name"></hot-column>
         <hot-column width="100" value="Offer.Price" readOnly header="Price (EUR)"></hot-column>
       </hot-table>
-
-      <script>
-        window.requestAnimationFrame(function () {
-          window.requestAnimationFrame(function () {
-            var hot = document.getElementById("receiptHot");
-            hot.updateSettings({ data: getModel(hot).Orders });
-          });
-        });
-      </script>
     </template>
   </div>
 </template>

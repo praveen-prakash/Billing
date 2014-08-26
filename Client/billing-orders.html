@@ -11,7 +11,7 @@
 
 <template bind="{{Billing}}">
   <style>
-    .request-receipt {
+    .request-invoice {
       margin-top: 20px;
     }
   </style>
@@ -19,7 +19,7 @@
   <div>
     <h1><i class="ingredient-icon"></i>Current orders</h1>
 
-    <hot-table id="receiptHot" datarows="{{Orders}}">
+    <hot-table id="invoiceHot" datarows="{{Orders}}">
       <hot-column width="200" readOnly value="Offer.Name" header="Name"></hot-column>
       <hot-column width="100" value="Offer.Price" readOnly header="Price (EUR)"></hot-column>
     </hot-table>
@@ -27,13 +27,13 @@
     <script>
       window.requestAnimationFrame(function () {
         window.requestAnimationFrame(function () {
-          var hot = document.getElementById("receiptHot");
+          var hot = document.getElementById("invoiceHot");
           hot.updateSettings({ data: getModel(hot).Orders });
         });
       });
     </script>
 
-    <button class="launcher-button request-receipt" style="background-color:#11653B" onclick="getModel(this).RequestReceipt$ = null">Request Receipt</button>
+    <button class="launcher-button request-invoice" style="background-color:#11653B" onclick="getModel(this).Requestinvoice$ = null">Request Invoice</button>
 
   </div>
 </template>

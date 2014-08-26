@@ -29,14 +29,14 @@ namespace Billing
     {
         public Offer Offer;
         public DateTime DateTime;
-        public Receipt Receipt;
+        public Invoice Invoice;
     }
 
     [Database]
-    public class Receipt
+    public class Invoice
     {
         public DateTime DateTime;
         public Decimal TotalPrice;
-        public QueryResultRows<Order> Orders { get { return Db.SQL<Order>("SELECT o FROM \"Billing.Order\" o WHERE Receipt=?", this); } }
+        public QueryResultRows<Order> Orders { get { return Db.SQL<Order>("SELECT o FROM \"Billing.Order\" o WHERE Invoice=?", this); } }
     }
 }
